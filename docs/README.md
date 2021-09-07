@@ -1,7 +1,7 @@
 ---   
 home: true
 heroImage: 
-actionText: Go →
+actionText: GoGO →
 actionLink: /
 features:
 - title: 简洁至上
