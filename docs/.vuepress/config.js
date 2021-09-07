@@ -3,7 +3,7 @@ module.exports = {
   keywords: '前端开发',
   description: '前端开发',
   repo: '', //仓库地址
-  base: '/personal/', // 配合部署项目
+  base: '/myblog/', // 配合部署项目
   port: 3000,
   head: [['link', { rel: 'icon', href: '/img/favicon.ico' }]],
   lastUpdated: 'Last Updated',
