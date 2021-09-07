@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue :key属性的作用 | Kyrie</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/myblog/img/favicon.ico">
+    <meta name="description" content="前端开发">
+    
+    <link rel="preload" href="/myblog/assets/css/0.styles.25d10ff8.css" as="style"><link rel="preload" href="/myblog/assets/js/app.31f9e970.js" as="script"><link rel="preload" href="/myblog/assets/js/2.050dca21.js" as="script"><link rel="preload" href="/myblog/assets/js/26.38694aee.js" as="script"><link rel="prefetch" href="/myblog/assets/js/10.53ffe5eb.js"><link rel="prefetch" href="/myblog/assets/js/11.d0dd62fb.js"><link rel="prefetch" href="/myblog/assets/js/12.cd7e978c.js"><link rel="prefetch" href="/myblog/assets/js/13.48c13eca.js"><link rel="prefetch" href="/myblog/assets/js/14.d56b9041.js"><link rel="prefetch" href="/myblog/assets/js/15.a259c6ab.js"><link rel="prefetch" href="/myblog/assets/js/16.57dac933.js"><link rel="prefetch" href="/myblog/assets/js/17.bda58143.js"><link rel="prefetch" href="/myblog/assets/js/18.caedb22a.js"><link rel="prefetch" href="/myblog/assets/js/19.bfee39bc.js"><link rel="prefetch" href="/myblog/assets/js/20.70162a5b.js"><link rel="prefetch" href="/myblog/assets/js/21.ecdd200c.js"><link rel="prefetch" href="/myblog/assets/js/22.3223fddd.js"><link rel="prefetch" href="/myblog/assets/js/23.8f1e3b1b.js"><link rel="prefetch" href="/myblog/assets/js/24.bc0cf5e1.js"><link rel="prefetch" href="/myblog/assets/js/25.7866bd93.js"><link rel="prefetch" href="/myblog/assets/js/27.3af1eda6.js"><link rel="prefetch" href="/myblog/assets/js/3.6a57fda0.js"><link rel="prefetch" href="/myblog/assets/js/4.dfffc976.js"><link rel="prefetch" href="/myblog/assets/js/5.c8482d89.js"><link rel="prefetch" href="/myblog/assets/js/6.ad77121e.js"><link rel="prefetch" href="/myblog/assets/js/7.0d16f476.js"><link rel="prefetch" href="/myblog/assets/js/8.c8b241ac.js"><link rel="prefetch" href="/myblog/assets/js/9.90bda903.js">
+    <link rel="stylesheet" href="/myblog/assets/css/0.styles.25d10ff8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/myblog/" class="home-link router-link-active"><img src="/myblog/img/avatar.jpg" alt="Kyrie" class="logo"> <span class="site-name can-hide">Kyrie</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/myblog/css_docs/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/myblog/js_docs/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/myblog/vue_docs/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/myblog/react_docs/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/myblog/life/" class="nav-link">
+  生活测试
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/myblog/css_docs/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/myblog/js_docs/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/myblog/vue_docs/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/myblog/react_docs/" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/myblog/life/" class="nav-link">
+  生活测试
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/myblog/vue_docs/vue笔记.html" class="sidebar-link">vue笔记(上)</a></li><li><a href="/myblog/vue_docs/vue-key属性的作用.html" class="active sidebar-link">vue :key属性的作用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/myblog/vue_docs/vue+axios实现http拦截及路由拦截.html" class="sidebar-link">Vue+axios 实现http拦截及路由拦截</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="key-到底有什么用啊"><a href="#key-到底有什么用啊" class="header-anchor">#</a> :key 到底有什么用啊</h3> <p>个人总结：Vue在为了节省DOM操作的性能，使用了重复策略。而在一个特别时，我们不需要重复策略，这时可以通过<code>:key</code>属性来指定不同的值，让它不执行重复策略，实现重新渲染</p> <h4 id="条件渲染中"><a href="#条件渲染中" class="header-anchor">#</a> 条件渲染中</h4> <p>Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做除了使 Vue 变得非常快之外，还有其它一些好处。例如，如果允许用户在不同的登录方式之间切换：
+例如：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
+  &lt;label&gt;Username&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your username&quot;&gt;
+&lt;/template&gt;
+&lt;template v-else&gt;
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your email address&quot;&gt;
+&lt;/template&gt;
+</code></pre></div><p>那么在上面的代码中切换 loginType 将不会清除用户已经输入的内容。因为两个模板使用了相同的元素，<code>&lt;input&gt;</code> 不会被替换掉——仅仅是替换了它的 <code>placeholder</code>这样也不总是符合实际需求，所以 Vue 为你提供了一种方式来表达“这两个元素是完全独立的，不要复用它们”。只需添加一个具有唯一值的 key 属性即可：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
+  &lt;label&gt;Username&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your username&quot; key=&quot;username-input&quot;&gt;
+&lt;/template&gt;
+&lt;template v-else&gt;
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;
+&lt;/template&gt;
+</code></pre></div><p>现在，每次切换时，输入框都将被重新渲染。注意，<code>&lt;label&gt;</code> 元素仍然会被高效地复用，因为它们没有添加 key 属性</p> <h4 id="v-for-中"><a href="#v-for-中" class="header-anchor">#</a> V-for 中</h4> <p>当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。
+这个<strong>默认的模式是高效的</strong>，但是<strong>只适用于不依赖子组件状态或临时 DOM 状态</strong> (例如：表单输入值) 的列表渲染输出。
+为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为<strong>每项提供一个唯一 key 属性</strong>。理想的 key 值是每项<strong>都有的且唯一的id</strong>。
+但它的工作方式类似于一个属性，所以需要用 v-bind 来绑定动态值 (在这里使用简写)：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;
+  &lt;!-- 内容 --&gt;
+&lt;/div&gt;
+</code></pre></div><p>建议尽可能在使用 <code>v-for</code> 时提供 key，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升。
+因为它是 Vue 识别节点的一个通用机制，key 并不与 <code>v-for</code> 特别关联，key 还具有其他用途，将在以后的开发学习中慢慢接触。
+另注：:key要放在真正的html元素上，不能放在<code>&lt;template&gt;&lt;/template&gt;</code>
+参考: https://segmentfault.com/q/1010000009077632/a-1020000009077906<br>
+vuejs官网：https://cn.vuejs.org/v2/guide/list.html#key</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/myblog/vue_docs/vue笔记.html" class="prev">
+        vue笔记(上)
+      </a></span> <span class="next"><a href="/myblog/vue_docs/vue+axios实现http拦截及路由拦截.html">
+        Vue+axios 实现http拦截及路由拦截
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/myblog/assets/js/app.31f9e970.js" defer></script><script src="/myblog/assets/js/2.050dca21.js" defer></script><script src="/myblog/assets/js/26.38694aee.js" defer></script>
+  </body>
+</html>
